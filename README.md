@@ -1,4 +1,10 @@
-# Mongoid Sequence
+# Mongoid3 Sequence
+
+Mongoid3 Sequence is an updated version of Mongoid Sequence gem by [goncalossilva].
+It has been updated to work with Mongoid3.  Name was changed since it is not backward compatible with Mongoid < 3.x.
+There are other Mongoid sequence gems, but this one has been useful since you can assign any field as sequenced.
+
+Below is the original README from Mongoid Sequence gem.
 
 Mongoid Sequence allows you to specify fields to behave like a sequence number (exactly like the "id" column in conventional SQL flavors).
 
@@ -16,7 +22,7 @@ Like this:
 class Sequenced
 	include Mongoid::Document
 	include Mongoid::Sequence
-	
+
 	field :my_sequence, :type => Integer
 	sequence :my_sequence
 end
@@ -34,7 +40,7 @@ It's also possible to make the `id` field behave like this:
 class Sequenced
 	include Mongoid::Document
 	include Mongoid::Sequence
-	
+
 	sequence :_id
 end
 
