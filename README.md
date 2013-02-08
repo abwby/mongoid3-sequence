@@ -1,6 +1,6 @@
 # Mongoid3 Sequence
 
-Mongoid3 Sequence is an updated version of Mongoid Sequence gem by [goncalossilva].
+Mongoid3 Sequence is an updated version of Mongoid Sequence gem by [goncalossilva](https://github.com/goncalossilva/mongoid-sequence).
 It has been updated to work with Mongoid3.  Name was changed since it is not backward compatible with Mongoid < 3.x.
 There are other Mongoid sequence gems, but this one has been useful since you can assign any field as sequenced.
 
