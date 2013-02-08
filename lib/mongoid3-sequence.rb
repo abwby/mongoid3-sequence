@@ -1,4 +1,4 @@
-require "mongoid-sequence/version"
+require "mongoid3-sequence/version"
 require "active_support/concern"
 
 module Mongoid

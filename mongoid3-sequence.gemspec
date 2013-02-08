@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/mongoid-sequence/version', __FILE__)
+require File.expand_path('../lib/mongoid3-sequence/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Gonçalo Silva"]
@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  gem.name          = "mongoid-sequence"
+  gem.name          = "mongoid3-sequence"
   gem.require_paths = ["lib"]
   gem.version       = "0.0.1"
 end
