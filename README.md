@@ -1,18 +1,18 @@
 # Mongoid3 Sequence
 
-Mongoid3 Sequence is an updated version of Mongoid Sequence gem by [goncalossilva](https://github.com/goncalossilva/mongoid-sequence).
-It has been updated to work with Mongoid3.  Name was changed since it is not backward compatible with Mongoid < 3.x.
-There are other Mongoid sequence gems, but this one has been useful since you can assign any field as sequenced.
+Mongoid3 Sequence allows you to specify fields to behave like a sequence number (exactly like the "id" column in
+conventional SQL flavors).
 
-Below is the original README from Mongoid Sequence gem.
+Mongoid3 Sequence works with Mongoid > 3.x, and is not backward compatible.
+There are other Mongoid sequence gems that sequences the _id field, but with this gem, you can assign any
+field as sequenced.
 
-Mongoid Sequence allows you to specify fields to behave like a sequence number (exactly like the "id" column in conventional SQL flavors).
 
 ## Credits
 
-This gem was inspired by a couple of gists by [masatomo](https://gist.github.com/730677) and [ShogunPanda](https://gist.github.com/1086265).
+This gem is derived from Mongoid Sequence Gem by [goncalossilva](https://github.com/goncalossilva/mongoid-sequence).
 
-## Usage
+## General Usage
 
 Include `Mongoid::Sequence` in your class and call `sequence(:field)`.
 
@@ -34,13 +34,18 @@ s2 = Sequenced.create
 s2.sequence #=> 2 # and so on
 ```
 
-It's also possible to make the `id` field behave like this:
+## _id Field Usage
+
+You can auto-assign sequenced ID to Mongod's _id field.  Note that you have to declare
+_id is Integer type.   This is because Mongoid3 defaults to treating _id as string, which will cause mongoid _id
+queries to return nil.   i.e. in the example below, Sequenced.where( _id: "2" ) will return nil.
 
 ```ruby
 class Sequenced
 	include Mongoid::Document
 	include Mongoid::Sequence
 
+  field :_id, type Integer
 	sequence :_id
 end
 
@@ -65,4 +70,4 @@ gem 'mongoid3-sequence', git: 'git://github.com/akiatoji/mongoid3-sequence.git'
 
 <hr/>
 
-Copyright © 2010 Gonçalo Silva, released under the MIT license
+Copyright © 2013 Aki Atoji, released under the MIT license
